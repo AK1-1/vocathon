@@ -30,6 +30,23 @@ NestFlow is a multilingual voice-activated household manager dashboard built for
 
 ---
 
+## Architecture
+
+![NestFlow architecture diagram](docs/architecture.svg)
+
+A family member calls the Bolna agent (**Mira**) and speaks in English, Hindi, Telugu, or
+Kannada. Bolna transcribes (Deepgram/Sarvam), runs the LLM with the knowledge base (RAG),
+and replies with a Cartesia voice. When the caller asks for an action, the LLM invokes a
+**custom tool** over HTTP — `add_grocery`, `assign_chore`, `log_instruction`, `add_reminder`,
+or `get_summary` — which hits the Express backend (exposed via ngrok), updates `db.json`, and
+pushes a live **Socket.io** event to the dashboard. After the call, Bolna's **Custom Analysis
+(extraction)** is delivered to the webhook and surfaced on the dashboard's "Call Insights" panel.
+
+*Editable source: [Figma board](https://www.figma.com/board/WfT053QdKqXifStP2Q4ktL). A Mermaid
+version of the same flow is in [`implementation_plan.md`](./implementation_plan.md).*
+
+---
+
 ## Getting Started
 
 ### 1. Installation
