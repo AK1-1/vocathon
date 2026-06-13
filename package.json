@@ -1,0 +1,25 @@
+{
+  "name": "nestflow-household-manager",
+  "version": "1.0.0",
+  "description": "Multilingual voice-activated household manager dashboard with Bolna and Cartesia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "voice-ai",
+    "bolna",
+    "cartesia",
+    "household-manager",
+    "dashboard"
+  ],
+  "author": "Voc-A-Thon Participant",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  }
+}

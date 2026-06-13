@@ -1,0 +1,163 @@
+{
+  "groceries": [
+    {
+      "id": "a9be7c47-2507-4014-b6f8-d6e619e35946",
+      "item": "Milk",
+      "quantity": "2 Litres",
+      "category": "Dairy",
+      "bought": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    },
+    {
+      "id": "f7bb810e-c0a4-40d1-a29f-387e9b7ebe8d",
+      "item": "Tomatoes",
+      "quantity": "1 kg",
+      "category": "Produce",
+      "bought": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    }
+  ],
+  "chores": [
+    {
+      "id": "e66dd3a8-377a-4782-b605-d72799c3014e",
+      "title": "Clean kitchen counters",
+      "assignee": "Achyut",
+      "priority": "high",
+      "notes": "After dinner",
+      "completed": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    },
+    {
+      "id": "549f74fa-cd99-4aee-8379-88e9ddff0329",
+      "title": "Water the living room plants",
+      "assignee": "Dad",
+      "priority": "medium",
+      "notes": "Every morning",
+      "completed": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    }
+  ],
+  "instructions": [
+    {
+      "id": "ff7828a5-a092-4f4d-8397-382dea5e7096",
+      "instruction": "Cook paneer butter masala for dinner tonight",
+      "recipient": "Cook",
+      "priority": "medium",
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    }
+  ],
+  "reminders": [
+    {
+      "id": "b1d9a4c2-3e8f-4a7b-9c11-2f6e5a8d0c33",
+      "title": "Dad's blood pressure medicine",
+      "date": "Every morning, 8 AM",
+      "type": "Medication",
+      "notes": "After breakfast",
+      "done": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    },
+    {
+      "id": "c2e8b5d3-4f9a-4b8c-8d22-3a7f6b9e1d44",
+      "title": "Ravi's birthday",
+      "date": "22 June",
+      "type": "Birthday",
+      "notes": "Buy a cake and gift beforehand",
+      "done": false,
+      "createdAt": "2026-06-13T02:41:35.535Z"
+    },
+    {
+      "id": "2e22fec1-d30c-47bc-a6fe-e838e2f20a2f",
+      "title": "Medicine for Mom",
+      "date": "today 8 PM",
+      "type": "Medication",
+      "notes": "",
+      "done": false,
+      "createdAt": "2026-06-13T08:23:40.130Z"
+    }
+  ],
+  "calls": [
+    {
+      "id": "5af618b5-cb4d-4e85-bcc3-99d2c015a7da",
+      "callId": "8850b35d-b577-4dcc-92fa-bf0fec6d014d",
+      "transcript": "assistant: Hi, I'm Mira, your family's NestFlow assistant. How can I help you today?\nuser: Hi add reminder to give medicine to mom \nassistant: How often or when should I remind you to give medicine to mom?\nuser: 8pm daily\nassistant: <speed ratio=\"1.2\"/><volume ratio=\"0.8\"/>Sure! Okay. I've set a reminder for give medicine to mom every day at 8pm. Anything else?",
+      "summary": "The conversation was between the user and the assistant Mira, where the user requested to add a daily reminder to give medicine to their mom at 8 PM. The assistant confirmed setting the reminder for every day at 8 PM.",
+      "duration": 0,
+      "extractedData": {
+        "detected_language": "English",
+        "caller_intent": "add_reminder",
+        "items_captured": "Reminder to give medicine to mom daily at 8pm",
+        "unresolved": "The reminder setting failed due to an endpoint being offline (ERR_NGROK_3200)"
+      },
+      "timestamp": "2026-06-13T08:22:05.074Z"
+    },
+    {
+      "id": "f9fb40ce-415c-43c1-9a14-255f622444e5",
+      "callId": "39cec664-ccb1-44a7-8a32-e036d780dc77",
+      "transcript": "assistant: Hi, I'm Mira, your family's NestFlow assistant. How can I help you today?\nuser: hey\nassistant: Hello! How can I help you manage your home today?\nuser: can you add a reminder\nassistant: What would you like the reminder to be for?\nuser: medicines at 8 pm\nassistant: Who should I set this reminder for?\nuser: Mom",
+      "summary": "The conversation was between the user and the assistant Mira, where the user requested to add a reminder for their mom to take medicines at 8 pm. The assistant proceeded to add the item \"medicines\" multiple times to the grocery list and logged the instruction \"Take medicines at 8 pm\" for the recipient Mom with medium priority repeatedly, confirming successful additions and logging of the reminder.",
+      "duration": 0,
+      "extractedData": {
+        "detected_language": "English",
+        "caller_intent": "leave_instruction",
+        "items_captured": "Added 'medicines' to groceries with unspecified quantity; Logged instruction for Mom to take medicines at 8 pm with medium priority",
+        "unresolved": "None"
+      },
+      "timestamp": "2026-06-13T08:18:48.385Z"
+    },
+    {
+      "id": "8adce327-7b42-461f-8d3d-2f4571067969",
+      "callId": "a7905760-6bbc-4d10-8c3f-63c5bb9c6c58",
+      "transcript": "assistant: Hi, I'm Mira, your family's NestFlow assistant. How can I help you today?\nuser: Hey\nassistant: Hello! How can I help you manage your home today?\nuser: Can you remind me about giving medicines to mom today at 8",
+      "summary": "The conversation involved the user requesting a reminder to give medicines to their mom at 8 PM. The assistant logged multiple instructions to remind the user about giving medicines to mom at 8 PM and added several entries of \"medicines\" and \"medicines for mom\" to the grocery list with unspecified quantities.",
+      "duration": 0,
+      "extractedData": {
+        "detected_language": "English",
+        "caller_intent": "leave_instruction",
+        "items_captured": "Added multiple entries of 'medicines' and 'medicines for mom' with unspecified quantity in the 'Other' category; logged instructions to remind about giving medicines to mom at 8 PM with medium priority",
+        "unresolved": "None"
+      },
+      "timestamp": "2026-06-13T08:17:17.762Z"
+    },
+    {
+      "id": "3ecd12a6-9d00-4b1d-b9c3-cffd5b26b26b",
+      "callId": "f8bd93ee-8a11-45fc-96e4-96d1df305d66",
+      "transcript": "assistant: Hi, I'm Mira, your family's NestFlow assistant. How can I help you today?\nuser: Hey, remind me to give my mom medication at 8PM today\nassistant: Sorry, I didn't catch that could you say it again?",
+      "summary": "The conversation was between the user and the assistant Mira. The user requested a reminder to give their mom medication at 8 PM today. The assistant attempted multiple times to add \"medication\" as a grocery item with unspecified quantity but did not confirm setting a reminder for 8 PM. The assistant then asked the user to repeat their request.",
+      "duration": 0,
+      "extractedData": {
+        "detected_language": "English",
+        "caller_intent": "add_grocery",
+        "items_captured": "medication (quantity unspecified, category Other) added multiple times",
+        "unresolved": "Setting a reminder for giving medication at 8PM today was not completed"
+      },
+      "timestamp": "2026-06-13T08:16:19.827Z"
+    },
+    {
+      "id": "3154f1db-5673-4d6b-b1e1-c29ad495c9bd",
+      "callId": "69c77823-3ef7-470b-83df-e1d31cbc3e1c",
+      "transcript": "assistant: Hi, I'm Mira, your family's NestFlow assistant. How can I help you today?\nuser: Hi Mira\nassistant: Hello! How can I help you manage your home today?\nuser: Can you remind me to give medication to my mom at 8PM\nassistant: What date should I set the reminder for?\nuser: today",
+      "summary": "The conversation was between the user and the assistant Mira, where the user requested a reminder to give medication to their mom at 8 PM today. The assistant attempted multiple times to add a \"medication reminder\" for 8 PM under the category \"Other,\" successfully creating several entries for this reminder.",
+      "duration": 0,
+      "extractedData": {
+        "detected_language": "English",
+        "caller_intent": "leave_instruction",
+        "items_captured": "Multiple entries of 'medication reminder' set for 8 PM today were added as tasks/reminders; also 'medication' items with unspecified quantity were added.",
+        "unresolved": "The reminder was added multiple times redundantly; no confirmation or correction was made to consolidate or remove duplicates."
+      },
+      "timestamp": "2026-06-13T08:10:41.491Z"
+    },
+    {
+      "id": "92ad9d7f-9ae0-498b-bcbc-fe49d2be273f",
+      "callId": "call_999",
+      "transcript": "User: Please add bananas to the list. Agent: Sure, bananas added.",
+      "summary": "Added bananas to the list.",
+      "duration": 22,
+      "extractedData": {
+        "detected_language": "Hinglish",
+        "caller_intent": "add_grocery",
+        "items_captured": "Bananas"
+      },
+      "timestamp": "2026-06-13T02:41:42.374Z"
+    }
+  ]
+}

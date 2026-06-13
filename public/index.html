@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NestFlow — Chief of Staff for the Family</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols for Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Gradients -->
+  <div class="glow-bg bg-glow-1"></div>
+  <div class="glow-bg bg-glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <span class="material-symbols-outlined">nightlight</span>
+        </div>
+        <div class="logo-text">
+          <h1>NestFlow</h1>
+          <p>Family Chief of Staff</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live Connection Status -->
+        <div id="connection-status" class="status-indicator offline">
+          <span class="status-dot"></span>
+          <span class="status-label">Connecting Server...</span>
+        </div>
+        <!-- Stats summary -->
+        <div class="stats-panel">
+          <div class="stat-badge">
+            <span class="material-symbols-outlined icon-grocery">shopping_basket</span>
+            <span class="stat-value" id="stat-groceries">0</span>
+            <span class="stat-lbl">Groceries</span>
+          </div>
+          <div class="stat-badge">
+            <span class="material-symbols-outlined icon-chore">assignment</span>
+            <span class="stat-value" id="stat-chores">0</span>
+            <span class="stat-lbl">Chores</span>
+          </div>
+          <div class="stat-badge">
+            <span class="material-symbols-outlined icon-reminder">notifications_active</span>
+            <span class="stat-value" id="stat-reminders">0</span>
+            <span class="stat-lbl">Reminders</span>
+          </div>
+          <div class="stat-badge">
+            <span class="material-symbols-outlined icon-call">record_voice_over</span>
+            <span class="stat-value" id="stat-calls">0</span>
+            <span class="stat-lbl">Calls</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="dashboard-grid">
+      
+      <!-- 1. GROCERIES TRACKER -->
+      <section class="card glassmorphism col-grocery">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-symbols-outlined card-icon">shopping_basket</span>
+            <h2>Grocery List</h2>
+          </div>
+          <button class="btn-icon" onclick="openModal('grocery-modal')" title="Add Grocery Item">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+        <div class="card-content">
+          <div id="grocery-empty" class="empty-state">
+            <span class="material-symbols-outlined">shopping_bag</span>
+            <p>No groceries logged. Ask NestFlow on a call to add items!</p>
+          </div>
+          <ul id="grocery-list" class="item-list">
+            <!-- Dynamic elements go here -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 2. FAMILY CHORES BOARD -->
+      <section class="card glassmorphism col-chore">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-symbols-outlined card-icon">assignment</span>
+            <h2>Family Chores</h2>
+          </div>
+          <button class="btn-icon" onclick="openModal('chore-modal')" title="Assign Chore">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+        <div class="card-content">
+          <div id="chore-empty" class="empty-state">
+            <span class="material-symbols-outlined">task</span>
+            <p>All clean! No pending chores at the moment.</p>
+          </div>
+          <ul id="chore-list" class="item-list">
+            <!-- Dynamic elements go here -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. DOMESTIC HELP COORDINATION -->
+      <section class="card glassmorphism col-instructions">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-symbols-outlined card-icon">support_agent</span>
+            <h2>Domestic Help Instructions</h2>
+          </div>
+          <button class="btn-icon" onclick="openModal('instruction-modal')" title="Log Instruction">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+        <div class="card-content">
+          <div id="instruction-empty" class="empty-state">
+            <span class="material-symbols-outlined">chat_bubble</span>
+            <p>No active instructions for help (Cook/Maid/Driver).</p>
+          </div>
+          <ul id="instruction-list" class="item-list">
+            <!-- Dynamic elements go here -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. REMINDERS & EVENTS -->
+      <section class="card glassmorphism col-span-full col-reminders">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-symbols-outlined card-icon">notifications_active</span>
+            <h2>Reminders &amp; Events</h2>
+          </div>
+          <button class="btn-icon" onclick="openModal('reminder-modal')" title="Add Reminder">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+        </div>
+        <div class="card-content">
+          <div id="reminder-empty" class="empty-state">
+            <span class="material-symbols-outlined">event_upcoming</span>
+            <p>No reminders yet. Ask Mira to remember medication, birthdays, festivals, or travel prep!</p>
+          </div>
+          <ul id="reminder-list" class="item-list">
+            <!-- Dynamic elements go here -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. VOICE INTERACTION LOGS -->
+      <section class="card glassmorphism col-span-full col-calls">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="material-symbols-outlined card-icon">record_voice_over</span>
+            <h2>Voice Agent Activity Logs</h2>
+          </div>
+          <div class="call-actions">
+            <span class="active-badge" id="call-active-badge">
+              <span class="pulse-dot"></span>
+              Live Agent Ready
+            </span>
+          </div>
+        </div>
+        <div class="card-content">
+          <div id="calls-empty" class="empty-state">
+            <span class="material-symbols-outlined">phone_in_talk</span>
+            <p>No recent calls logged. Place a test call to interact with the assistant.</p>
+          </div>
+          <div id="calls-list" class="calls-container">
+            <!-- Dynamic call blocks go here -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD GROCERY -->
+  <!-- ========================================== -->
+  <div id="grocery-modal" class="modal-overlay">
+    <div class="modal glassmorphism">
+      <div class="modal-header">
+        <h3>Add Grocery Item</h3>
+        <button class="btn-close" onclick="closeModal('grocery-modal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="grocery-form" class="modal-form">
+        <div class="form-group">
+          <label for="g-item">Item Name*</label>
+          <input type="text" id="g-item" placeholder="e.g. Organic Milk, Avocados" required autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="g-quantity">Quantity</label>
+            <input type="text" id="g-quantity" placeholder="e.g. 2 litres, 3 units">
+          </div>
+          <div class="form-group">
+            <label for="g-category">Category</label>
+            <select id="g-category">
+              <option value="Produce">Produce (Fruit/Veg)</option>
+              <option value="Dairy">Dairy & Eggs</option>
+              <option value="Pantry">Pantry & Grains</option>
+              <option value="Bakery">Bakery</option>
+              <option value="Household">Household & Cleaning</option>
+              <option value="Other" selected>Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">Add Item</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD CHORE -->
+  <!-- ========================================== -->
+  <div id="chore-modal" class="modal-overlay">
+    <div class="modal glassmorphism">
+      <div class="modal-header">
+        <h3>Assign New Chore</h3>
+        <button class="btn-close" onclick="closeModal('chore-modal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="chore-form" class="modal-form">
+        <div class="form-group">
+          <label for="c-title">Chore Title*</label>
+          <input type="text" id="c-title" placeholder="e.g. Clear garbage bin, Vacuum basement" required autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-assignee">Assignee</label>
+            <input type="text" id="c-assignee" placeholder="e.g. Achyut, Mom, Maid">
+          </div>
+          <div class="form-group">
+            <label for="c-priority">Priority</label>
+            <select id="c-priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c-notes">Notes / Instructions</label>
+          <textarea id="c-notes" placeholder="e.g. Need to do it before 6 PM today" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Assign Chore</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD INSTRUCTION -->
+  <!-- ========================================== -->
+  <div id="instruction-modal" class="modal-overlay">
+    <div class="modal glassmorphism">
+      <div class="modal-header">
+        <h3>Log Help Instruction</h3>
+        <button class="btn-close" onclick="closeModal('instruction-modal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="instruction-form" class="modal-form">
+        <div class="form-group">
+          <label for="i-instruction">Instruction Details*</label>
+          <input type="text" id="i-instruction" placeholder="e.g. Make Paneer Curry, Feed the dog" required autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="i-recipient">Recipient Help</label>
+            <select id="i-recipient">
+              <option value="Cook">Cook</option>
+              <option value="Maid">Maid</option>
+              <option value="Driver">Driver</option>
+              <option value="Gardener">Gardener</option>
+              <option value="General" selected>General Help</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="i-priority">Priority</label>
+            <select id="i-priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">Save Instruction</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: ADD REMINDER -->
+  <!-- ========================================== -->
+  <div id="reminder-modal" class="modal-overlay">
+    <div class="modal glassmorphism">
+      <div class="modal-header">
+        <h3>Add Reminder</h3>
+        <button class="btn-close" onclick="closeModal('reminder-modal')">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="reminder-form" class="modal-form">
+        <div class="form-group">
+          <label for="r-title">What to remember*</label>
+          <input type="text" id="r-title" placeholder="e.g. Dad's BP medicine, Ravi's birthday, Diwali shopping" required autocomplete="off">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-date">When</label>
+            <input type="text" id="r-date" placeholder="e.g. 20 June, tomorrow 9 AM, every morning" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="r-type">Type</label>
+            <select id="r-type">
+              <option value="Medication">Medication</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Event" selected>Event</option>
+              <option value="Festival">Festival</option>
+              <option value="Travel">Travel</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="r-notes">Notes</label>
+          <textarea id="r-notes" placeholder="e.g. Buy gift beforehand, pack medicines" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Add Reminder</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast notifications container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Socket.io and custom client-side JS -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
